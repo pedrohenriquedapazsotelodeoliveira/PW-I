@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz Matemático</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+        }
+
+        .jogo {
+            width: 350px;
+            padding: 30px;
+            text-align: center;
+            background: white;
+            border-radius: 20px;
+        }
+
+        .icone {
+            font-size: 50px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .pergunta {
+            padding: 15px;
+            margin: 20px 0;
+            background: #f1f5ff;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background: #2575fc;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #155dcc;
+        }
+
+        #resultado {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        #pontos {
+            color: #2575fc;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="jogo">
+
+        <div class="icone">🧠</div>
+
+        <h1>Quiz Matemático</h1>
+
+        <p>Teste seus conhecimentos!</p>
+
+        <p id="pontos">Pontos: 0</p>
+
+        <div class="pergunta">
+            <span>PERGUNTA</span>
+            <h2 id="pergunta">Quanto é 5 + 3?</h2>
+        </div>
+
+        <input
+            type="number"
+            id="resposta"
+            placeholder="Digite sua resposta"
+        >
+
+        <button id="enviar">
+            🚀 Enviar resposta
+        </button>
+
+        <div id="resultado"></div>
+
+    </div>
+
+    <script>
+        let perguntas = [
+            {
+                pergunta: "Quanto é 5 + 3?",
+                resposta: 8
+            },
+            {
+                pergunta: "Quanto é 10 - 4?",
+                resposta: 6
+            },
+            {
+                pergunta: "Quanto é 3 × 4?",
+                resposta: 12
+            },
+            {
+                pergunta: "Quanto é 20 ÷ 5?",
+                resposta: 4
+            },
+            {
+                pergunta: "Quanto é 7 + 6?",
+                resposta: 13
+            }
+        ];
+
+        let numeroPergunta = 0;
+        let pontos = 0;
+
+        let pergunta = document.getElementById("pergunta");
+        let resposta = document.getElementById("resposta");
+        let enviar = document.getElementById("enviar");
+        let resultado = document.getElementById("resultado");
+        let pontosTexto = document.getElementById("pontos");
+
+        enviar.onclick = function() {
+
+            let valor = Number(resposta.value);
+
+            if (valor === perguntas[numeroPergunta].resposta) {
+
+                pontos++;
+
+                resultado.innerHTML = "✅ ACERTOU!";
+                resultado.style.backgroundColor = "green";
+                resultado.style.color = "white";
+
+            } else {
+
+                resultado.innerHTML = "❌ ERROU!";
+                resultado.style.backgroundColor = "red";
+                resultado.style.color = "white";
+            }
+
+            pontosTexto.innerHTML = "Pontos: " + pontos;
+
+            numeroPergunta++;
+
+            if (numeroPergunta < perguntas.length) {
+
+                setTimeout(function() {
+
+                    pergunta.innerHTML =
+                        perguntas[numeroPergunta].pergunta;
+
+                    resposta.value = "";
+                    resultado.innerHTML = "";
+                    resultado.style.backgroundColor = "";
+
+                }, 1000);
+
+            } else {
+
+                setTimeout(function() {
+
+                    pergunta.innerHTML = "🎉 Quiz terminado!";
+                    resposta.style.display = "none";
+                    enviar.style.display = "none";
+
+                    resultado.innerHTML =
+                        "Você fez " + pontos + " de " + perguntas.length + " pontos!";
+
+                    resultado.style.backgroundColor = "#2575fc";
+                    resultado.style.color = "white";
+
+                }, 1000);
+            }
+        };
+    </script>
+
+</body>
+</html>
