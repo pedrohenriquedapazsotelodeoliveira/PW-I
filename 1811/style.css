@@ -1,0 +1,227 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #071b42, #1266a8, #38a6c9);
+    color: white;
+    padding: 30px 15px;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+}
+
+.topo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.topo h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.topo p {
+    color: #d8edff;
+}
+
+.pesquisa {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.pesquisa input {
+    flex: 1;
+    min-width: 0;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.pesquisa button {
+    background: #ffca28;
+    color: #17243b;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+}
+
+.localizacao {
+    display: block;
+    margin: 0 auto 15px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+#mensagem {
+    text-align: center;
+    min-height: 24px;
+    color: #ffe7a0;
+}
+
+.clima {
+    text-align: center;
+    margin-top: 15px;
+    padding: 30px 20px;
+    background: rgba(255,255,255,0.13);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 25px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+
+.clima h2 {
+    font-size: 27px;
+}
+
+#data {
+    color: #d8edff;
+    margin-top: 8px;
+}
+
+.icone {
+    font-size: 85px;
+    margin: 15px 0 5px;
+}
+
+#temperatura {
+    font-size: 65px;
+}
+
+#descricao {
+    font-size: 19px;
+    margin-top: 5px;
+    text-transform: capitalize;
+}
+
+.detalhes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.detalhe {
+    background: rgba(255,255,255,0.12);
+    border-radius: 15px;
+    padding: 18px 8px;
+}
+
+.detalhe span {
+    font-size: 25px;
+}
+
+.detalhe p {
+    margin: 8px 0;
+    color: #d8edff;
+    font-size: 14px;
+}
+
+.detalhe strong {
+    font-size: 17px;
+}
+
+.previsao {
+    margin-top: 30px;
+}
+
+.previsao h2 {
+    margin-bottom: 18px;
+}
+
+.dias {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.dia {
+    text-align: center;
+    padding: 17px 8px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.13);
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.dia p {
+    font-size: 13px;
+}
+
+.dia .dia-icone {
+    font-size: 30px;
+    margin: 12px 0;
+}
+
+.dia strong {
+    font-size: 15px;
+}
+
+.dia small {
+    display: block;
+    margin-top: 6px;
+    color: #d8edff;
+}
+
+footer {
+    text-align: center;
+    margin-top: 35px;
+    color: #d8edff;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    .topo h1 {
+        font-size: 29px;
+    }
+
+    .pesquisa {
+        flex-direction: column;
+    }
+
+    .dias {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #temperatura {
+        font-size: 55px;
+    }
+
+    .detalhes {
+        gap: 7px;
+    }
+
+    .detalhe {
+        padding: 14px 5px;
+    }
+
+    .detalhe p {
+        font-size: 12px;
+    }
+}

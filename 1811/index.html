@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClimaTempo - Previsão do Tempo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+
+        <header class="topo">
+            <h1>☀️ ClimaTempo</h1>
+            <p>Previsão do tempo em qualquer lugar</p>
+        </header>
+
+        <section class="pesquisa">
+            <input
+                type="text"
+                id="cidade"
+                placeholder="Digite o nome da cidade..."
+            >
+            <button id="buscar">Pesquisar</button>
+        </section>
+
+        <button id="localizacao" class="localizacao">
+            📍 Usar minha localização
+        </button>
+
+        <p id="mensagem" role="status"></p>
+
+        <section class="clima">
+            <h2 id="nomeCidade">São Paulo</h2>
+            <p id="data"></p>
+
+            <div class="icone" id="icone">🌤️</div>
+
+            <h1 id="temperatura">--°C</h1>
+            <p id="descricao">Carregando previsão...</p>
+
+            <div class="detalhes">
+                <div class="detalhe">
+                    <span>💧</span>
+                    <p>Umidade</p>
+                    <strong id="umidade">--%</strong>
+                </div>
+
+                <div class="detalhe">
+                    <span>💨</span>
+                    <p>Vento</p>
+                    <strong id="vento">-- km/h</strong>
+                </div>
+
+                <div class="detalhe">
+                    <span>🌡️</span>
+                    <p>Sensação</p>
+                    <strong id="sensacao">--°C</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="previsao">
+            <h2>📅 Previsão para 7 dias</h2>
+            <div id="dias" class="dias"></div>
+        </section>
+
+        <footer>
+            <p>Dados meteorológicos: Open-Meteo</p>
+            <p>ClimaTempo © 2026</p>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
